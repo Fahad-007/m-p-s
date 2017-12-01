@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>M/P/S</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/resume.css">
+	<link rel="stylesheet" type="text/css" href="css/slider-1st.css">
+
+
+	
+		<link rel="stylesheet" type="text/css" href="hover/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="hover/css/set2.css" />
+
+
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+	<script type="text/javascript" src="js/modernizr.custom.69142.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="Swiper-master/css/swiper.min.css">
+
+
+
+</head>
+<body class="body">
+
+	<header>
+		<nav id="nav" class="nav">
+			<button class="menu">
+			   <em class="hamburger"></em>
+			</button>
+		  	<div class="brand">
+		    	<a href="#">Logo</a>
+		  	</div>
+			  	<ul class="navbar">
+			    	<li>
+			      		<a href="#home">Home</a>
+			    	</li>
+			    	<li>
+			      		<a href="#sect-2">About</a>
+			    	</li>
+			    	<li>
+			      		<a href="#services">Services</a>
+			    	</li>
+			    	<li>
+			      		<a href="#contact">Contact</a>
+			    	</li>
+			  	</ul>
+		</nav>
+		<section class="slider">
+			<div id="app" class="wrapper" v-cloak v-bind:class="{'is-previous': isPreviousSlide, 'first-load': isFirstLoad}">
+	            <div class="slide-wrapper" 
+	                 v-for="(slide, index) in slides" 
+	                 v-bind:class="{ active: index === currentSlide }"
+	                 v-bind:style="{ 'z-index': (slides.length - index), 'background-image': 'url(' + slide.bgImg + ')' }">
+	                <div class="slide-inner">
+	                    <div class="slide-bg-text">
+	                        <p>{{ slide.headlineFirstLine }}</p>
+	                        <p>{{ slide.headlineSecondLine }}</p>
+	                    </div>
+	                    <div class="slide-rect-filter">
+	                        <div class="slide-rect" v-bind:style="{'border-image-source': 'url(' + slide.rectImg + ')'}"></div>
+	                    </div>
+	                    <div class="slide-content">
+	                        <h1 class="slide-content-text"><p>{{ slide.headlineFirstLine }}</p><p>{{ slide.headlineSecondLine }}</p></h1><a class="slide-content-cta">Call To Action</a></div>
+	                    <h2 class="slide-side-text"><span>{{ slide.sublineFirstLine }} / </span><span>{{ slide.sublineSecondLine }}</span></h2></div>
+	            </div>
+		        <div class="controls-container">
+		            <button class="controls-button" 
+		                    v-for="(slide, index) in slides"
+		                    v-bind:class="{ active: index === currentSlide }"
+		                    v-on:click="updateSlide(index)">{{ slide.headlineFirstLine }} {{ slide.headlineSecondLine }}</button>
+		        </div>
+		        <div class="pagination-container">
+		            <span class="pagination-item"
+		                  v-for="(slide, index) in slides"
+		                  v-bind:class="{ active: index === currentSlide }"
+		                  v-on:click="updateSlide(index)"></span>
+		        </div>
+		    </div>
+		</section>
+	</header>
+
+	
+	<section class="section-2" id="sect-2">
+		<div class="container">
+			<div class="col-md-12">
+				<div class="div-titel">
+					<div class="page-titel">
+						<h3>See it in action</h3>
+						<div class="pl"></div>
+					</div>
+					<br>
+					<p class="mid-size_p">
+						Cayman is the most flexible and complete theme. <br>
+						Its modern and fully responsive design best fits into current web trends. 
+					</p>
+				</div>
+				<div class="services_div">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="item_serv">
+								<span class="serv_icon">
+									<i class="fa fa-2x fa-user" aria-hidden="true"></i>
+								</span>
+								<h4>Modern</h4>
+								<p>
+									 The most flexible and complete theme. A theme that is optimized for search engines, endless options. And if you get stuck, Cayman offers dedicated customer support. 
+								</p>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="item_serv">
+								<div class="serv_icon">
+									<i class="fa fa-2x fa-bolt" aria-hidden="true"></i>
+								</div>
+								<h4>Creative</h4>
+								<p>
+									 Choose from multiple unique designs Cayman offers. You won't look for a new theme any time soon. User-friendly grid, based on the super popular Bootstrap. 
+								</p>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="item_serv">
+								<span class="serv_icon">
+									<i class="fa fa-2x fa-microphone" aria-hidden="true"></i>
+								</span>
+								<h4>Responsive</h4>
+								<p>
+									 Wide range of out of the box solutions. You can actually build any kind of website with Cayman. Personalize your site without coding expertise or design skills. 
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="about">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6 div-about-1">
+					<div class="titel-div">
+						<h3>About me</h3>
+						<div class="sl"></div>
+						<h4 class="titel_pera">
+							We like to create things with fun, like minded people. 
+						</h4>
+
+						<p>
+							Hello, I’m a UI/UX Designer & Front End Developer from Victoria, Australia. I hold a master degree of Web Design from the World University.
+							<br>
+							And scrambled it to make a type specimen book. It has survived not only five centuries
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6 div-about-2">
+					<img src="img/11.jpg">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="info">	
+		<div class="container-fluid">
+			<div class="page-titel">
+				<h3 class="section-title">Personal Information</h3>
+				<div class="pl"></div>
+			</div>
+
+			<div class="timeline" id="edu-section">
+				
+				<div class="timeline__block">
+			        <div class="timeline__midpoint timeline__midpoint--highlight no-top-margin">
+			            <h4 class="timeline__year">1994</h4>
+			        </div>
+			        <div class="timeline__content timeline__content--right">
+			            <h3 class="timeline__year timeline__year--mobile">1999</h3>
+			            <p class="timeline__text--right">
+			                In 1994 i started my journey in this earth.
+			            </p>
+			        </div>
+			    </div>
+
+			    <div class="timeline__block">
+			        <div class="timeline__midpoint"></div>
+			        <div class="timeline__content timeline__content--left">
+			            <h4 class="timeline__year">Birth</h4>
+			            <p class="timeline__text--left">
+			                The birth of a wonderful, fabulous, adorable and lovable baby in april 24 1994.
+							Name Abdullah-Al-Fahad, father's name- Fazlul Haque and mother name- Rehana Parvin. Religion-Islam
+			            </p>
+			        </div>
+			    </div>
+
+			    <div class="timeline__block">
+			        <div class="timeline__midpoint"></div>
+			        <div class="timeline__content timeline__content--right">
+			            <h4 class="timeline__year">primary education</h4>
+			            <p class="timeline__text--right">
+			                I started my primary education in 2001. And start learning about the earth.
+			            </p>
+			        </div>
+			    </div>
+
+			    <div class="timeline__block">
+			        <div class="timeline__midpoint"></div>
+			        <div class="timeline__content timeline__content--left">
+			            <h4 class="timeline__year">2005</h4>
+			            <p class="timeline__text--left">
+			                After 5 years of hard braking competition I complete my primary education.
+			            </p>
+			        </div>
+			    </div>
+
+			    <div class="timeline__block">
+			        <div class="timeline__midpoint timeline__midpoint--highlight no-top-margin">
+			            <h4 class="timeline__year">2006</h4>
+			        </div>
+			        <div class="timeline__content timeline__content--right">
+			            <h3 class="timeline__year timeline__year--mobile">2006</h3>
+			            <p class="timeline__text--right">
+			                After completing my primary education i start going for secondary education.
+			            </p>
+			        </div>
+			    </div>
+
+			    <div class="timeline__block">
+			        <div class="timeline__midpoint"></div>
+			        <div class="timeline__content timeline__content--left">
+			            <h4 class="timeline__year">secondary education</h4>
+			            <p class="timeline__text--left">
+			                I earn many many many knowledge in this section of my life. I make many friends from this section.
+			            </p>
+			        </div>
+			    </div>
+
+			    <div class="timeline__block">
+			        <div class="timeline__midpoint"></div>
+			        <div class="timeline__content timeline__content--right">
+			            <h4 class="timeline__year">2011</h4>
+			            <p class="timeline__text--right">
+			                It's a long journey. After 6 years my secondary education is completed.
+			            </p>
+			        </div>
+			    </div>
+
+			    <div class="timeline__block">
+			        <div class="timeline__midpoint timeline__midpoint--highlight no-top-margin">
+			            <h4 class="timeline__year">2012</h4>
+			        </div>
+			        <div class="timeline__content timeline__content--left">
+			            <h4 class="timeline__year timeline__year--mobile">2012</h4>
+			            <img class="timeline__img" src="" alt="">
+			            <p class="timeline__text--left">
+			                after completing secondary education , i admitted to diploma in mechanical & computer science technology
+			            </p>
+			        </div>
+			    </div>
+
+			    
+
+			    <div class="timeline__block">
+			        <div class="timeline__midpoint"></div>
+			        <div class="timeline__content timeline__content--left">
+			            <h4 class="timeline__year">2016</h4>
+			            <p class="timeline__text--left">
+			                In 2016 i complete my diploma education.
+			            </p>
+			        </div>
+			    </div>
+
+			    <div class="timeline__block">
+			        <div class="timeline__midpoint timeline__midpoint--highlight no-top-margin">
+			          <h4 class="timeline__year">2017</h4>
+			        </div>
+			        <div class="timeline__content timeline__content--right">
+			            <h3 class="timeline__year timeline__year--mobile">2017</h3>
+			            <p class="timeline__text--right">
+			                New direction.
+			            </p>
+			        </div>
+			    </div>
+
+			    <div class="timeline__block">
+			        <div class="timeline__midpoint"></div>
+			        <div class="timeline__content timeline__content--left">
+			            <h4 class="timeline__year">2017</h4>
+			            <img class="timeline__img" src="" alt="">
+			            <p class="timeline__text--left">
+			                Grateful to the everyone and the universe.
+			            </p>
+			        </div>
+			    </div>
+
+			    <div class="timeline__block">
+			        <div class="timeline__midpoint"></div>
+			        <div class="timeline__content timeline__content--right">
+			            <h4 class="timeline__year">Going forward</h4>
+			            <p class="timeline__text--right">
+			                Creating...
+			            </p>
+			        </div>
+			    </div>
+
+			</div>
+		</div>
+	</section>
+
+	<section id="count-section">
+		<div class="bg-color">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3 round-1">
+						<div class="raund-div">
+							<h2>0</h2>
+						</div>
+						<h4>total project</h4>
+					</div>
+					<div class="col-sm-3 round-2">
+						<div class="raund-div">
+							<h2>0</h2>
+						</div>
+						<h4>complete project</h4>
+					</div>
+					<div class="col-sm-3 round-3">
+						<div class="raund-div">
+							<h2>0</h2>
+						</div>
+						<h4>total clients</h4>
+					</div>
+					<div class="col-sm-3 round-4">
+						<div class="raund-div">
+							<h2>0</h2>
+						</div>
+						<h4>total like</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="portfolio">
+		<div class="page-titel">
+			<h3 class="">PORTFOLIO</h3>
+			<div class="pl"></div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				
+				<!-- <div class="col-md-4 col-padding">
+					<div class="col-img img-first" style="background: url(https://wallpapersite.com/images/pages/pic_w/8742.jpg);background-size: cover;width:100%;height: 210px;">
+						<div class="col-bg">
+							<i class="fa fa-3x fa-picture-o" aria-hidden="true"></i>
+						</div>
+					</div>
+				</div> -->
+
+
+				<div class="grid col-md-4 col-padding">
+					<figure class="effect-julia img-first">
+						<img class="hov-img" src="img/mokup/1.jpg" alt="1"/>
+						<figcaption>
+							
+							<div>
+								<h4 class="img-heading">Passionate <span>Julia</span></h4>
+								<br>
+								<p>Julia dances in the deep dark</p><br>
+								<p>She loves the smell of the ocean</p><br>
+								<p>And dives into the morning light</p>
+							</div>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+				</div>
+
+				<div class="grid col-md-4 col-padding">
+					<figure class="effect-hera img-first">
+						<img class="hov-img" src="img/mokup/2.jpg" alt="2"/>
+						<figcaption>
+							<h4>Tender <span>Hera</span></h4>
+							<p>
+								<a href="#"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+								<a href="#"><i class="fa fa-fw fa-file-image-o"></i></a>
+								<a href="#"><i class="fa fa-fw fa-file-archive-o"></i></a>
+								<a href="#"><i class="fa fa-fw fa-file-code-o"></i></a>
+							</p>
+						</figcaption>			
+					</figure>
+				</div>
+
+				<div class="grid col-md-4 col-padding">
+					<figure class="effect-apollo img-first">
+						<img class="hov-img" src="img/mokup/3.jpg" alt="3"/>
+						<figcaption>
+							<h4>Strong <span>Apollo</span></h4>
+							<p>Apollo's last game of pool was so strange.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+				</div>
+
+				<div class="grid col-md-4 col-padding">
+					<figure class="effect-hera img-first">
+						<img class="hov-img" src="img/mokup/5.jpg" alt="4"/>
+						<figcaption>
+							<h4>Tender <span>Hera</span></h4>
+							<p>
+								<a href="#"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+								<a href="#"><i class="fa fa-fw fa-file-image-o"></i></a>
+								<a href="#"><i class="fa fa-fw fa-file-archive-o"></i></a>
+								<a href="#"><i class="fa fa-fw fa-file-code-o"></i></a>
+							</p>
+						</figcaption>			
+					</figure>
+				</div>
+
+				<div class="grid col-md-4 col-padding">
+					<figure class="effect-apollo img-first">
+						<img class="hov-img" src="img/mokup/4.jpg" alt="5"/>
+						<figcaption>
+							<h4>Strong <span>Apollo</span></h4>
+							<p>Apollo's last game of pool was so strange.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+				</div>
+
+
+				<div class="grid col-md-4 col-padding">
+					<figure class="effect-julia img-first">
+						<img class="hov-img" src="img/mokup/6.jpg" alt="6"/>
+						<figcaption>
+							<div>
+								<h4 class="img-heading">Passionate <span>Julia</span></h4>
+								<br>
+								<p>Julia dances in the deep dark</p><br>
+								<p>She loves the smell of the ocean</p><br>
+								<p>And dives into the morning light</p>
+							</div>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+				</div>
+
+				<div class="grid col-md-4 col-padding">
+					<figure class="effect-apollo img-first">
+						<img class="hov-img" src="img/mokup/7.jpg" alt="7"/>
+						<figcaption>
+							<h4>Strong <span>Apollo</span></h4>
+							<p>Apollo's last game of pool was so strange.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+				</div>
+
+				<div class="grid col-md-4 col-padding">
+					<figure class="effect-julia img-first">
+						<img class="hov-img" src="img/mokup/8.jpg" alt="8"/>
+						<figcaption>
+							<div>
+								<h4 class="img-heading">Passionate <span>Julia</span></h4>
+								<br>
+								<p>Julia dances in the deep dark</p><br>
+								<p>She loves the smell of the ocean</p><br>
+								<p>And dives into the morning light</p>
+							</div>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+				</div>
+
+				<div class="grid col-md-4 col-padding">
+					<figure class="effect-hera img-first">
+						<img class="hov-img" src="img/mokup/9.jpg" alt="img17"/>
+						<figcaption>
+							<h4>Tender <span>Hera</span></h4>
+							<p>
+								<a href="#"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+								<a href="#"><i class="fa fa-fw fa-file-image-o"></i></a>
+								<a href="#"><i class="fa fa-fw fa-file-archive-o"></i></a>
+								<a href="#"><i class="fa fa-fw fa-file-code-o"></i></a>
+							</p>
+						</figcaption>			
+					</figure>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
+	<section id="clients">
+		<div class="container-fluid">
+		<div class="page-titel">
+			<h3>Clients Review</h3>
+			<div class="pl">	</div>
+		</div>
+			<div class="swiper-container">
+			    <div class="swiper-wrapper">
+			      <div class="swiper-slide">
+			      	<div class="client-item container">
+			      		<p>
+			      			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc venenatis sem id leo pretium, non mattis nibh maximus. Cras convallis eu sapien quis aliquam. iure perferendis provident quia eaque vero numquam?
+			      		</p>
+			      		<div class="client-baio">
+			      			<img src="img/10.jpg">
+			      			<h5>- Steve Jobs -</h5>
+			      			<p><small>Apple Inc.</small></p>
+			      		</div>
+			      	</div>
+			      </div>
+
+			      <div class="swiper-slide">
+			      	<div class="client-item container">
+			      		<p>
+			      			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc venenatis sem id leo pretium, non mattis nibh maximus. Cras convallis eu sapien quis aliquam. iure perferendis provident quia eaque vero numquam?
+			      		</p>
+			      		<div class="client-baio">
+			      			<img src="img/9.jpg">
+			      			<h5>- Steve Jobs -</h5>
+			      			<p><small>Apple Inc.</small></p>
+			      		</div>
+			      	</div>
+			      </div>
+
+			      <div class="swiper-slide">
+			      	<div class="client-item container">
+			      		<p>
+			      			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc venenatis sem id leo pretium, non mattis nibh maximus. Cras convallis eu sapien quis aliquam. iure perferendis provident quia eaque vero numquam?
+			      		</p>
+			      		<div class="client-baio">
+			      			<img src="img/res.jpg">
+			      			<h5>- Steve Jobs -</h5>
+			      			<p><small>Apple Inc.</small></p>
+			      		</div>
+			      	</div>
+			      </div>
+
+			      <div class="swiper-slide">
+			      	<div class="client-item container">
+			      		<p>
+			      			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc venenatis sem id leo pretium, non mattis nibh maximus. Cras convallis eu sapien quis aliquam. iure perferendis provident quia eaque vero numquam?
+			      		</p>
+			      		<div class="client-baio">
+			      			<img src="img/10.jpg">
+			      			<h5>- Steve Jobs -</h5>
+			      			<p><small>Apple Inc.</small></p>
+			      		</div>
+			      	</div>
+			      </div>
+			    </div>
+			    <!-- Add Pagination -->
+			    <div class="swiper-pagination"></div>
+			</div>
+		</div>
+	</section>
+
+	<section id="contact">
+		<div class="container">
+			<div class="page-titel">
+				<h3>Contact Me</h3>
+				<div class="pl"></div>
+			</div>
+
+			<div class="">
+			    <form method="post" action="" class="ccform">
+			    <div class="col-md-6 contact-sect_1">
+				    <div class="ccfield-prepend">
+				        <span class="ccform-addon"><i class="fa fa-user"></i></span>
+				        <input class="ccformfield" type="text" placeholder="Full Name" required>
+				    </div>
+				    <div class="ccfield-prepend">
+				        <span class="ccform-addon"><i class="fa fa-envelope"></i></span>
+				        <input class="ccformfield" type="text" placeholder="Email" required>
+				    </div>
+				    <div class="ccfield-prepend">
+				        <span class="ccform-addon"><i class="fa fa-mobile-phone"></i></span>
+				        <input class="ccformfield" type="text" placeholder="Phone">
+				    </div>
+				     <div class="ccfield-prepend">
+				        <span class="ccform-addon"><i class="fa fa-info"></i></span>
+				        <input class="ccformfield" type="text" placeholder="Subject" required>
+				    </div>
+				</div>
+
+				    <div class="col-md-6 contact-sect_2">
+					    <div class="ccfield-prepend">
+					        <span class="ccform-addon"><i class="fa fa-comment"></i></span>
+					        <textarea class="ccformfield" name="comments" rows="" placeholder="Message" required></textarea>
+					    </div>
+					</div>
+					<div class="col-md-12">
+					    <div class="ccfield-prepend">
+					        <input class="ccbtn" type="submit" value="Submit">
+					    </div>
+					</div>
+			    </form>
+			</div>
+		</div>
+	</section>
+
+	<footer id="footer">
+		<div class="container-fluid">
+			<div class="footer-div">
+				<h2>Footer</h2>
+				<p>My portfolio site</p>
+			</div>
+		</div>
+	</footer>
+
+	
+	
+	<div class="pattern-overlay"></div>
+
+
+
+
+	<script type="text/javascript" src="new/js/library/jquery.js"></script>
+
+	<script src="js/bootstrap.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js"></script>
+	<!--    castom js-->
+	<script src="js/script.js"></script>
+	<script src="js/slider.js"></script>
+
+	<script src="Swiper-master/js/swiper.min.js"></script>
+	<script>
+			// For Demo purposes only (show hover effect on mobile devices)
+			[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
+				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
+			} );
+
+			var swiper = new Swiper('.swiper-container', {
+		      direction: 'vertical',
+		      pagination: {
+		        el: '.swiper-pagination',
+		        clickable: true,
+		      },
+		      autoplay: {
+			    delay: 5000,
+			  },
+		    });
+	</script>
+
+	<script src="sketch.js"></script>
+	
+		
+</body>
+</html>

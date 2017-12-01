@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>M/P/S</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/slider-1st.css">
+
+
+	
+		<link rel="stylesheet" type="text/css" href="hover/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="hover/css/set2.css" />
+
+
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+	<script type="text/javascript" src="js/modernizr.custom.69142.js"></script>
+</head>
+<body class="body">
+
+	<header>
+		<nav id="nav" class="nav">
+			<button class="menu">
+			   <em class="hamburger"></em>
+			</button>
+		  	<div class="brand">
+		    	<a href="#">Logo</a>
+		  	</div>
+			  	<ul class="navbar">
+			    	<li>
+			      		<a href="#home">Home</a>
+			    	</li>
+			    	<li>
+			      		<a href="#about">About</a>
+			    	</li>
+			    	<li>
+			      		<a href="#services">Services</a>
+			    	</li>
+			    	<li>
+			      		<a href="#contact">Contact</a>
+			    	</li>
+			  	</ul>
+		</nav>
+		<section class="slider">
+			<div id="app" class="wrapper" v-cloak v-bind:class="{'is-previous': isPreviousSlide, 'first-load': isFirstLoad}">
+	            <div class="slide-wrapper" 
+	                 v-for="(slide, index) in slides" 
+	                 v-bind:class="{ active: index === currentSlide }"
+	                 v-bind:style="{ 'z-index': (slides.length - index), 'background-image': 'url(' + slide.bgImg + ')' }">
+	                <div class="slide-inner">
+	                    <div class="slide-bg-text">
+	                        <p>{{ slide.headlineFirstLine }}</p>
+	                        <p>{{ slide.headlineSecondLine }}</p>
+	                    </div>
+	                    <div class="slide-rect-filter">
+	                        <div class="slide-rect" v-bind:style="{'border-image-source': 'url(' + slide.rectImg + ')'}"></div>
+	                    </div>
+	                    <div class="slide-content">
+	                        <h1 class="slide-content-text"><p>{{ slide.headlineFirstLine }}</p><p>{{ slide.headlineSecondLine }}</p></h1><a class="slide-content-cta">Call To Action</a></div>
+	                    <h2 class="slide-side-text"><span>{{ slide.sublineFirstLine }} / </span><span>{{ slide.sublineSecondLine }}</span></h2></div>
+	            </div>
+		        <div class="controls-container">
+		            <button class="controls-button" 
+		                    v-for="(slide, index) in slides"
+		                    v-bind:class="{ active: index === currentSlide }"
+		                    v-on:click="updateSlide(index)">{{ slide.headlineFirstLine }} {{ slide.headlineSecondLine }}</button>
+		        </div>
+		        <div class="pagination-container">
+		            <span class="pagination-item"
+		                  v-for="(slide, index) in slides"
+		                  v-bind:class="{ active: index === currentSlide }"
+		                  v-on:click="updateSlide(index)"></span>
+		        </div>
+		    </div>
+		</section>
+	</header>
+
+	<!--<section class="resume">-->
+		<!--<div class="container-fluid">-->
+			<!--<div class="row">-->
+				<!--<div class="col-md-10">-->
+					<!--<div class="profile profile-content"></div>-->
+				<!--</div>-->
+
+				<!--<div class="col-md-2">-->
+					<!--<div class="profile">-->
+						<!--<ul>-->
+							<!--<a href=""><li>Education</li></a>-->
+							<!--<a href=""><li>Skills</li></a>-->
+							<!--<a href=""><li>Experience</li></a>-->
+							<!--<a href=""><li>Portfolios</li></a>-->
+						<!--</ul>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</section>-->
+
+	
+	<section class="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="nexts next-img-1">
+						<div class="bg-trans">
+							<h2><strong>Contact Center<br> Messaging</strong></h2>
+							
+							<h4>Automated</h4>
+							<p>
+								Allows enterprise to send automated bulk SMS messages from their business systems using their existing toll-free number and receive replies. When used with WEBTEXT Contact Center Messaging products, something really smart happens: message replies – depending on their content – can either be forwarded to a contact center chat agent or to the business system.
+							</p>
+
+							<h4>Manual</h4>
+							<p>
+								Allows enterprise to send and receive bulk messages manually. Messages are sent via WEBTEXT cloud-based messaging gateway using a toll-free number.
+							</p>
+
+							<h4>Voice Agent Messaging</h4>
+							<p>
+								Enables Voice Agents in real time to identify a cell phone caller and text them information while they’re speaking. Agent also has a complete history of all messaging sent to / from a caller’s number.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="nexts next-img">
+						<div>
+							<h4>Pretty</h4>
+							<p>
+								Do you know the difference between a beautiful woman and a charming one? A beauty is a woman you notice, a charmer is one who notices you.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="slider-2">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="round">
+						<div class="ru">
+							35
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="round">
+						<div class="ru" style="border-color: #561663">
+							35
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="round">
+						<div class="ru" style="border-color: #0a1460">
+							35
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="round">
+						<div class="ru" style="border-color: #2b1016">
+							35
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="portfolio">
+		<h2 class="titel">PORTFOLIO</h2>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-padding">
+					<div class="col-img img-first" style="background: url(https://wallpapersite.com/images/pages/pic_w/8742.jpg);background-size: cover;width:100%;height: 210px;">
+						<div class="col-bg">
+							<i class="fa fa-3x fa-picture-o" aria-hidden="true"></i>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-padding">
+					<div class="col-bg-1">
+					</div>
+						<img class="img-first" src="https://wallpapersite.com/images/pages/pic_w/8784.jpg">
+					
+				</div>
+				<div class="col-md-4 col-padding">
+					<img class="img-first" src="https://wallpapersite.com/images/pages/pic_w/8719.jpg">
+				</div>
+
+				<div class="col-md-4 col-padding">
+					<img class="img-first" src="https://wallpapersite.com/images/pages/pic_w/8947.jpg">
+				</div>
+				<div class="col-md-4 col-padding">
+					<img class="img-first" src="https://free4kwallpapers.com/uploads/originals/2015/12/09/rakul-preet-singh-telugu-actress-wallpaper.jpg">
+				</div>
+				<div class="col-md-4 col-padding">
+					<img class="img-first" src="https://wallpapersite.com/images/pages/pic_w/5997.jpg">
+				</div>
+
+
+				<div class="col-md-4 col-padding">
+					<img class="img-first" src="https://wallpapersite.com/images/pages/pic_w/5323.jpg">
+				</div>
+				<div class="col-md-4 col-padding">
+					<img class="img-first" src="https://wallpapersite.com/images/pages/pic_w/5045.jpg">
+				</div>
+				<div class="col-md-4 col-padding">
+					<img class="img-first" src="https://wallpapersite.com/images/pages/pic_w/4584.jpg">
+				</div>
+
+
+				<div class="col-md-4 col-padding">
+					<img class="img-first" src="https://wallpapersite.com/images/pages/pic_w/3435.jpg">
+				</div>
+				<div class="col-md-4 col-padding">
+					<img class="img-first" src="https://wallpapersite.com/images/pages/pic_w/3319.jpg">
+				</div>
+				<div class="col-md-4 col-padding">
+					<img class="img-first" src="https://wallpapersite.com/images/pages/pic_w/2978.jpg">
+				</div>
+
+
+				<div class="grid col-md-4 col-padding">
+					<figure class="effect-julia img-first">
+						<img class="hov-img" src="https://wallpapersite.com/images/pages/pic_w/2978.jpg" alt="img21"/>
+						<figcaption>
+							
+							<div>
+								<p>Passionate <span>Julia</span></p>
+								<p>Julia dances in the deep dark</p><br>
+								<p>She loves the smell of the ocean</p><br>
+								<p>And dives into the morning light</p>
+							</div>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+				</div>
+
+				<div class="grid col-md-4 col-padding">
+					<figure class="effect-hera img-first">
+						<img class="hov-img" src="https://wallpapersite.com/images/pages/pic_w/2978.jpg" alt="img17"/>
+						<figcaption>
+							<h2>Tender <span>Hera</span></h2>
+							<p>
+								<a href="#"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+								<a href="#"><i class="fa fa-fw fa-file-image-o"></i></a>
+								<a href="#"><i class="fa fa-fw fa-file-archive-o"></i></a>
+								<a href="#"><i class="fa fa-fw fa-file-code-o"></i></a>
+							</p>
+						</figcaption>			
+					</figure>
+				</div>
+
+				<div class="grid col-md-4 col-padding">
+					<figure class="effect-apollo img-first">
+						<img class="hov-img" src="https://wallpapersite.com/images/pages/pic_w/2978.jpg" alt="img18"/>
+						<figcaption>
+							<h2>Strong <span>Apollo</span></h2>
+							<p>Apollo's last game of pool was so strange.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section>
+		
+	</section>
+	
+	<div class="pattern-overlay"></div>
+
+
+
+
+	<script type="text/javascript" src="new/js/library/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/slider.js"></script>
+	<script>
+			// For Demo purposes only (show hover effect on mobile devices)
+			[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
+				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
+			} );
+		</script>
+		
+</body>
+</html>
