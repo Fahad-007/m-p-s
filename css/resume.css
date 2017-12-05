@@ -64,6 +64,10 @@ p{
 	 -webkit-transition-duration: 0.3s; 
 	 transition-duration: 0.3s;
 	} 
+
+.logo-img{
+	width: 140px;
+}
 .nav .brand { 
 	/* padding: 15px 60px; */ /* line-height: 30px; */ 
 	line-height: 100px; 
